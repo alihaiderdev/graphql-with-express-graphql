@@ -1,0 +1,87 @@
+const db = require('../models');
+// const Users = db.users;
+const scopes = async (req, res) => {
+  try {
+    // let data = await db.users.bulkCreate([
+    //   { status: 1, name: 'mustafa', gender: 'male', email: 'mustafa@gmail.com' },
+    //   { status: 1, name: 'usman', gender: 'male', email: 'usman@gmail.com' },
+    //   { status: 1, name: 'arfeen', gender: 'male', email: 'arfeen@gmail.com' },
+    //   { status: 1, name: 'arsalan', gender: 'male', email: 'arsalan@gmail.com' },
+    //   { status: 1, name: 'zohaib', gender: 'male', email: 'zohaib@gmail.com' },
+    //   { status: 1, name: 'talha', gender: 'male', email: 'talha@gmail.com' },
+    //   { status: 1, name: 'saad', gender: 'male', email: 'saad@gmail.com' },
+    //   { status: 1, name: 'abid', gender: 'male', email: 'abid@gmail.com' },
+    //   { status: 1, name: 'faizan', gender: 'male', email: 'faizan@gmail.com' },
+    //   { status: 1, name: 'hassan', gender: 'male', email: 'hassan@gmail.com' },
+    //   { status: 1, name: 'shayan', gender: 'male', email: 'shayan@gmail.com' },
+    //   { status: 1, name: 'saud', gender: 'male', email: 'saud@gmail.com' },
+    //   { status: 1, name: 'hamza', gender: 'male', email: 'hamza@gmail.com' },
+    //   { status: 1, name: 'jahanzaib', gender: 'male', email: 'jahanzaib@gmail.com' },
+    //   { status: 1, name: 'uzair', gender: 'male', email: 'uzair@gmail.com' },
+    //   { status: 1, name: 'shahroz', gender: 'male', email: 'shahroz@gmail.com' },
+    //   { status: 1, name: 'rehman', gender: 'male', email: 'rehman@gmail.com' },
+    //   { status: 1, name: 'ali', gender: 'male', email: 'ali@gmail.com' },
+    //   { status: 1, name: 'haider', gender: 'male', email: 'haider@gmail.com' },
+    //   { status: 1, name: 'rehban', gender: 'male', email: 'rehban@gmail.com' },
+    //   { status: 1, name: 'mujtaba', gender: 'male', email: 'mujtaba@gmail.com' },
+    //   { status: 1, name: 'talal', gender: 'male', email: 'talal@gmail.com' },
+    //   { status: 1, name: 'haris', gender: 'male', email: 'haris@gmail.com' },
+    //   { status: 1, name: 'waseem', gender: 'male', email: 'waseem@gmail.com' },
+    //   { status: 1, name: 'mehdi', gender: 'male', email: 'mehdi@gmail.com' },
+    //   { status: 1, name: 'mazhar', gender: 'male', email: 'mazhar@gmail.com' },
+    //   { status: 1, name: 'azhar', gender: 'male', email: 'azhar@gmail.com' },
+    //   { status: 1, name: 'akber', gender: 'male', email: 'akber@gmail.com' },
+    //   { status: 1, name: 'kulsoom', gender: 'female', email: 'kulsoom@gmail.com' },
+    //   { status: 1, name: 'ayesha', gender: 'female', email: 'ayesha@gmail.com' },
+    //   { status: 1, name: 'areeba', gender: 'female', email: 'areeba@gmail.com' },
+    //   { status: 1, name: 'jawaria', gender: 'female', email: 'jawaria@gmail.com' },
+    //   { status: 1, name: 'afsheen', gender: 'female', email: 'afsheen@gmail.com' },
+    //   { status: 1, name: 'salma', gender: 'female', email: 'salma@gmail.com' },
+    //   { status: 1, name: 'iram', gender: 'female', email: 'iram@gmail.com' },
+    //   { status: 0, name: 'anam', gender: 'female', email: 'anam@gmail.com' },
+    //   { status: 0, name: 'hina', gender: 'female', email: 'hina@gmail.com' },
+    //   { status: 0, name: 'saba', gender: 'female', email: 'saba@gmail.com' },
+    //   { status: 0, name: 'sana', gender: 'female', email: 'sana@gmail.com' },
+    //   { status: 0, name: 'saima', gender: 'female', email: 'saima@gmail.com' },
+    //   { status: 0, name: 'shazia', gender: 'female', email: 'shazia@gmail.com' },
+    //   { status: 0, name: 'shamim', gender: 'female', email: 'shamim@gmail.com' },
+    //   { status: 0, name: 'laraib', gender: 'female', email: 'laraib@gmail.com' },
+    //   { status: 0, name: 'naba', gender: 'female', email: 'naba@gmail.com' },
+    //   { status: 0, name: 'urooj', gender: 'female', email: 'urooj@gmail.com' },
+    //   { status: 0, name: 'maida', gender: 'female', email: 'maida@gmail.com' },
+    //   { status: 0, name: 'sanobar', gender: 'female', email: 'sanobar@gmail.com' },
+    //   { status: 0, name: 'nimra', gender: 'female', email: 'nimra@gmail.com' },
+    //   { status: 0, name: 'hira', gender: 'female', email: 'hira@gmail.com' },
+    //   { status: 0, name: 'maryum', gender: 'female', email: 'maryum@gmail.com' },
+    //   { status: 0, name: 'saman', gender: 'female', email: 'saman@gmail.com' },
+    //   { status: 0, name: 'jiya', gender: 'female', email: 'jiya@gmail.com' },
+    //   { status: 0, name: 'palwasha', gender: 'female', email: 'palwasha@gmail.com' },
+    //   { status: 0, name: 'farzah', gender: 'female', email: 'farzah@gmail.com' },
+    //   { status: 0, name: 'irha', gender: 'female', email: 'irha@gmail.com' },
+    //   { status: 0, name: 'zara', gender: 'female', email: 'zara@gmail.com' },
+    //   { status: 0, name: 'nida', gender: 'female', email: 'nida@gmail.com' },
+    //   { status: 0, name: 'rimsha', gender: 'female', email: 'rimsha@gmail.com' },
+    //   { status: 0, name: 'afshan', gender: 'female', email: 'afshan@gmail.com' },
+    //   { status: 0, name: 'iqra', gender: 'female', email: 'iqra@gmail.com' },
+    //   { status: 0, name: 'kiran', gender: 'female', email: 'kiran@gmail.com' },
+    //   { status: 0, name: 'romana', gender: 'female', email: 'romana@gmail.com' },
+    //   { status: 0, name: 'rizwana', gender: 'female', email: 'rizwana@gmail.com' },
+    //   { status: 0, name: 'shabana', gender: 'female', email: 'shabana@gmail.com' },
+    //   { status: 0, name: 'farzana', gender: 'female', email: 'farzana@gmail.com' },
+    //   { status: 0, name: 'samreen', gender: 'female', email: 'samreen@gmail.com' },
+    //   { status: 0, name: 'horab', gender: 'female', email: 'horab@gmail.com' },
+    //   { status: 0, name: 'jhon', gender: 'other', email: 'jhon@gmail.com' },
+    //   { status: 0, name: 'jack', gender: 'other', email: 'jack@gmail.com' },
+    //   { status: 0, name: 'karan', gender: 'other', email: 'karan@gmail.com' },
+    // ]);
+    let data = await db.users.findAll({});
+    res.status(200).json({ data });
+  } catch (error) {
+    console.log('Error : ', error);
+    res.status(400).json({ error });
+  }
+};
+
+module.exports = {
+  scopes,
+};
