@@ -5,7 +5,8 @@ const sequelize = new Sequelize('sequelize_with_mysql', 'root', '', {
   dialect: 'mysql',
   //   logging: true, // for stopping insertion sql queries logs
   //   OR
-  logging: console.log,
+  //   logging: console.log,
+  logging: false,
 });
 
 sequelize

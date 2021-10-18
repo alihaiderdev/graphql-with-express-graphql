@@ -1,5 +1,4 @@
 const db = require('../models');
-// const Users = db.users;
 const scopes = async (req, res) => {
   try {
     // let data = await db.users.bulkCreate([
@@ -74,7 +73,7 @@ const scopes = async (req, res) => {
     //   { status: 0, name: 'jack', gender: 'other', email: 'jack@gmail.com' },
     //   { status: 0, name: 'karan', gender: 'other', email: 'karan@gmail.com' },
     // ]);
-    let data = await db.users.findAll({});
+    let data = await db.users.findAll({ where: { status: 0 } });
     res.status(200).json({ data });
   } catch (error) {
     console.log('Error : ', error);
