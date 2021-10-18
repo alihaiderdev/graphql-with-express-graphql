@@ -8,7 +8,7 @@ module.exports.usersListType = new GraphQLObjectType({
     email: { type: GraphQLString },
     gender: { type: GraphQLString },
     status: { type: GraphQLInt },
-    // createdAt: { type: GraphQLString },
-    // updatedAt: { type: GraphQLString },
+    createdAt: { type: GraphQLString },
+    updatedAt: { type: GraphQLString },
   }),
 });

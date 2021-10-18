@@ -5,7 +5,6 @@ module.exports.usersList = {
   type: new GraphQLList(usersListType),
   resolve: async (parent, args, context) => {
     const contextData = await context(); // if we call this context function in any mutation or  query then thye code written in server.js file executes
-    console.log('contextData : ', contextData);
     const { dbConfig } = parent;
     let data = await dbConfig.users.findAll();
     return data;

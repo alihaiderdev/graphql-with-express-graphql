@@ -4,7 +4,8 @@ const { usersListType } = require('../typeDefs/usersType');
 const { statusType } = require('../typeDefs/statusType');
 
 module.exports.addUser = {
-  type: usersListType,
+  // type: usersListType,
+  type: statusType,
   args: {
     name: { type: GraphQLString },
     email: { type: GraphQLString },
@@ -26,7 +27,7 @@ module.exports.addUser = {
     //   await db.users.create({ name, email, gender, status });
     // }
     await db.users.create({ name, email, gender, status });
-    return args;
+    return { success: true, message: 'Created Successfully', error: '' };
   },
 };
 

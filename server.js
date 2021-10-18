@@ -5,6 +5,7 @@ const { graphqlHTTP } = require('express-graphql');
 const schema = require('./schema/index');
 const userController = require('./controllers/userController');
 const db = require('./models');
+var cors = require('cors');
 
 const PORT = 8000;
 const app = express();
@@ -12,6 +13,10 @@ const app = express();
 require('./models/Users');
 
 app.use(express.json());
+// app.use(cors());
+// app.use(cors({ origin: '*' }));
+// OR
+app.use(cors({ origin: true, credentials: true }));
 
 var rootValues = {
   ip: `202.141.253.34`,
